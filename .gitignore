@@ -1,0 +1,17 @@
+parameters.json
+*.log
+temp/
+.DS_Store
+.idea/
+.vscode/
+__pycache__/
+*.pyc
+env/
+venv/
+*.sqlite3
+*.db
+*.bak
+*.swp
+*.tmp
+*.old
+*.orig
