@@ -21,18 +21,21 @@ This project deploys Grafana on AWS ECS Fargate with Azure AD authentication, ac
 ## Quick Start
 
 1. **Clone and navigate to project**
+
    ```bash
    git clone <repository-url>
    cd MigrateGrafana2ECS
    ```
 
 2. **Create parameters file**
+
    ```bash
    cp parameters.json.example parameters.json
    # Edit parameters.json with your values
    ```
 
 3. **Deploy stack**
+
    ```bash
    make deploy
    ```
@@ -44,7 +47,9 @@ This project deploys Grafana on AWS ECS Fargate with Azure AD authentication, ac
 ## Configuration Files
 
 ### parameters.json
+
 Create this file with your specific values:
+
 ```json
 [
   {
@@ -94,6 +99,7 @@ Create this file with your specific values:
 | `make validate` | Validate template |
 
 ### Custom Variables
+
 ```bash
 # Deploy with custom stack name and AWS profile
 make deploy STACK_NAME=my-grafana AWS_PROFILE=prod
@@ -121,7 +127,7 @@ make deploy PARAMETERS_FILE=prod-params.json
 4. **API Permissions**
    - Add Microsoft Graph permissions:
      - `openid`
-     - `email` 
+     - `email`
      - `profile`
 
 ## Network Access
@@ -133,12 +139,14 @@ make deploy PARAMETERS_FILE=prod-params.json
 ## Monitoring & Troubleshooting
 
 ### CloudWatch Logs
+
 ```bash
 # View Grafana logs
 aws logs tail /ecs/grafana --follow
 ```
 
 ### ECS Exec Access
+
 ```bash
 # Connect to running container
 aws ecs execute-command \
@@ -150,6 +158,7 @@ aws ecs execute-command \
 ```
 
 ### Health Checks
+
 - **Container Health**: `/healthz` endpoint
 - **ALB Health**: `/api/health` endpoint
 - **Interval**: 30 seconds
@@ -211,6 +220,7 @@ make status
 ### Support
 
 For issues or questions:
+
 - Check CloudWatch logs
 - Review ECS service events
 - Validate parameters.json format
@@ -218,7 +228,7 @@ For issues or questions:
 
 ## Files Structure
 
-```
+```tree
 ├── README.md                    # This documentation
 ├── grafana-ecs-fargate.yaml    # CloudFormation template
 ├── Makefile                     # Deployment automation
